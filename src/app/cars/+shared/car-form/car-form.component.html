@@ -1,0 +1,23 @@
+<form class="car-form" [formGroup]="form.$ref" (ngSubmit)="handleSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Mark</mat-label>
+    <input matInput [formControl]="form.mark" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Model</mat-label>
+    <input matInput [formControl]="form.model" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Color</mat-label>
+    <mat-select [formControl]="form.color" required>
+      <mat-option *ngFor="let clr of colors" [value]="clr">{{clr}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <section class="actions">
+    <button mat-flat-button color="primary">Save</button>
+    <button mat-button color="primary" (click)="handleCancel()">Cancel</button>
+  </section>
+</form>
