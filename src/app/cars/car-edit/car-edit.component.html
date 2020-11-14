@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Edit Car</h1>
+<div mat-dialog-content>
+  <ng-container *ngIf="loaded$ | async; else loading">
+    <app-car-form [car]="car$ | async"
+                  (save)="handleSave($event)"
+                  (cancel)="handleCancel()"></app-car-form>
+  </ng-container>
+</div>
+
+<ng-template #loading>
+  <mat-spinner *ngIf="loading$"></mat-spinner>
+</ng-template>
