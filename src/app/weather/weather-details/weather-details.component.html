@@ -1,0 +1,17 @@
+<mat-card class="weather">
+  <mat-card-header>
+    <mat-card-title>Current weather in {{weather.location.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="weather-details">
+    <div class="current-weather"><img [src]="weather.current.condition.icon" alt="">
+      <div>{{weather.current.condition.text}}</div>
+    </div>
+    <div>{{weather.location.country}}</div>
+    <div>{{weather.location.localtime}}</div>
+
+    <div>{{weather.location.region}}</div>
+    <div>{{weather.current.temp_c}} &#176;C</div>
+    <div>{{weather.current.temp_f}} &#176;F</div>
+
+  </mat-card-content>
+</mat-card>
