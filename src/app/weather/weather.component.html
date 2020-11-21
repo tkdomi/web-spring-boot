@@ -1,0 +1,8 @@
+<div class="weather-container">
+  <app-weather-form (checkWeather)="handleFindWeather($event)"></app-weather-form>
+
+  <ng-container *ngIf="weather$ | async as weather">
+    <app-weather-details [weather]="weather"></app-weather-details>
+  </ng-container>
+</div>
+
