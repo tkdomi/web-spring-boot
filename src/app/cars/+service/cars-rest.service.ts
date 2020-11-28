@@ -30,10 +30,19 @@ export class CarsRestService {
   }
 
   createCar(car: Car): Observable<{}> {
+    console.log(car);
     return this.http.post(`${this.API_URL}`, car);
   }
 
   editCar(car: Car): Observable<{}> {
     return this.http.put(`${this.API_URL}`, car);
+  }
+
+  getCarsByYears(yearFrom: number, yearTo: number): Observable<Car[]> {
+    const params = {
+      yearFrom: yearFrom.toString(),
+      yearTo: yearTo.toString()
+    };
+    return this.http.get<Car[]>(`${this.API_URL}/filter-by-years`, {params: params} );
   }
 }

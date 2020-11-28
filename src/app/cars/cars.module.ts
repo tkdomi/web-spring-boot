@@ -13,6 +13,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { CarCreateComponent } from './car-create/car-create.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CarEditComponent } from './car-edit/car-edit.component';
+import { CarsHeaderComponent } from './cars-header/cars-header.component';
+import { CarYearsPickerComponent } from './+shared/car-years-picker/car-years-picker.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +25,8 @@ import { CarEditComponent } from './car-edit/car-edit.component';
     CarsTableComponent,
     CarCreateComponent,
     CarEditComponent,
+    CarsHeaderComponent,
+    CarYearsPickerComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +39,8 @@ import { CarEditComponent } from './car-edit/car-edit.component';
     MatToolbarModule,
     MatSelectModule,
     MatDialogModule,
+    MatInputModule,
+    FormsModule,
   ],
   exports: [
     CarsComponent

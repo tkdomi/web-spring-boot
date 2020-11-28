@@ -1,0 +1,17 @@
+<form>
+  <h1 mat-dialog-title></h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Year from</mat-label>
+      <input matInput required type="number" [(ngModel)]="yearFrom" name="yearFrom">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Year to</mat-label>
+      <input matInput required type="number" [(ngModel)]="yearTo" name="yearTo">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-flat-button color="primary" type="button" [mat-dialog-close]="{yearFrom: yearFrom, yearTo: yearTo}">Filter</button>
+    <button mat-flat-button type="button" mat-dialog-close>Cancel</button>
+  </div>
+</form>

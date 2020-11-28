@@ -40,7 +40,8 @@ export class CarEditService implements OnDestroy {
       id: carId,
       mark: form.mark,
       model: form.model,
-      color: Color[form.color]
+      color: Color[form.color],
+      year: form.year
     });
   }
 

@@ -5,4 +5,5 @@ export interface Car {
   mark: string;
   model: string;
   color: Color;
+  year: number;
 }
