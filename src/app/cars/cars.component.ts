@@ -20,7 +20,6 @@ export class CarsComponent implements OnInit, OnDestroy {
   loading$: Observable<boolean>;
   loaded$: Observable<boolean>;
 
-  colors: string[] = Object.keys(Color);
   selectedColor: Color = null;
 
   private sub: Subscription;
@@ -78,5 +77,9 @@ export class CarsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+  }
+
+  handleFilterByYears(params: { yearFrom: number; yearTo: number }) {
+    this.service.filterByYears(params.yearFrom, params.yearTo);
   }
 }

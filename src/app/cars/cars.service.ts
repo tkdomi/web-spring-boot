@@ -15,6 +15,7 @@ export class CarsService implements OnDestroy {
 
   private readonly loadAction = new Subject();
   private readonly loadByColorAction = new Subject<{color: Color}>();
+  private readonly loadByYearsAction = new Subject<{yearFrom: number, yearTo: number}>();
   private readonly deleteAction = new Subject<{id: number}>();
 
   private readonly sub: Subscription;
@@ -23,6 +24,7 @@ export class CarsService implements OnDestroy {
     this.sub = merge(
       this.loadEffect(),
       this.loadByColorEffect(),
+      this.loadByYearsEffect(),
       this.deleteEffect()
     ).subscribe(noop);
   }
@@ -38,6 +40,10 @@ export class CarsService implements OnDestroy {
 
   filterByColor(color: Color): void {
     this.loadByColorAction.next({color});
+  }
+
+  filterByYears(yearFrom: number, yearTo: number): void {
+    this.loadByYearsAction.next({yearFrom, yearTo});
   }
 
   deleteCar(id: number) {
@@ -76,6 +82,31 @@ export class CarsService implements OnDestroy {
         this.loaded.next(false);
       }),
       switchMap(({color}) => this.restService.getCarsByColor(color).pipe(
+        tap((cars => {
+          console.log(cars);
+          this.cars.next(cars);
+        })),
+        catchError(error => {
+          console.log(error);
+          this.cars.next([]);
+          return EMPTY;
+        }),
+        finalize(() => {
+          this.loading.next(false);
+          this.loaded.next(true);
+        })
+      )),
+      ignoreElements()
+    );
+  }
+
+  private loadByYearsEffect() {
+    return this.loadByYearsAction.pipe(
+      tap(() => {
+        this.loading.next(true);
+        this.loaded.next(false);
+      }),
+      switchMap(({yearFrom, yearTo}) => this.restService.getCarsByYears(yearFrom, yearTo).pipe(
         tap((cars => {
           this.cars.next(cars);
         })),

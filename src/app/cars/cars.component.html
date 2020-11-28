@@ -1,14 +1,7 @@
-<mat-toolbar class="cars-toolbar">
-  <h1>CARS</h1>
-  <mat-form-field appearance="standard">
-    <mat-label>Color</mat-label>
-    <mat-select (valueChange)="handleColorChange($event)">
-      <mat-option [value]="null">All</mat-option>
-      <mat-option *ngFor="let color of colors" [value]="color">{{color}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-stroked-button (click)="handleCreateCar()">Add new Car</button>
-</mat-toolbar>
+<app-cars-header
+  (colorChange)="handleColorChange($event)"
+  (filterByYears)="handleFilterByYears($event)"
+  (createCar)="handleCreateCar()"></app-cars-header>
 
 <ng-container *ngIf="loaded$ | async; else loading">
   <app-cars-table [cars]="cars$ | async"

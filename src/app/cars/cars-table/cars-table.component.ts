@@ -15,7 +15,7 @@ export class CarsTableComponent {
   @Output()
   deleteCar = new EventEmitter<number>();
 
-  displayedColumns: string[] = ['mark', 'model', 'color', 'options'];
+  displayedColumns: string[] = ['mark', 'model', 'color', 'year', 'options'];
 
   handleEdit(car: Car) {
     this.editCar.emit(car.id);

@@ -47,7 +47,8 @@ export class CarCreateService implements OnDestroy {
     return {
       mark: form.mark,
       model: form.model,
-      color: Color[form.color]
+      color: Color[form.color],
+      year: form.year
     };
   }
 }
