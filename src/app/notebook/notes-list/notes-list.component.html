@@ -1,0 +1,11 @@
+<mat-card class="notes-list">
+  <mat-card-title>My notes</mat-card-title>
+  <hr>
+  <mat-card-content>
+    <mat-selection-list [multiple]="false" (selectionChange)="handleSelection($event)">
+      <mat-list-option *ngFor="let note of notes" [value]="note">
+        {{note.title}}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+</mat-card>

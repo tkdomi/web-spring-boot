@@ -1,0 +1,22 @@
+<mat-toolbar class="notebook-header">
+  <h1>Notebook</h1>
+  <button type="button" mat-stroked-button (click)="handleAddNote()">New note</button>
+</mat-toolbar>
+<ng-container *ngIf="loaded$ | async; else loading">
+  <div class="notebook">
+    <app-notes-list *ngIf="!(noNotes$ | async)"
+                    [notes]="notes$ | async"
+                    (selectedNote)="handleSelectedChange($event)"></app-notes-list>
+
+    <app-note-details class="note-details"
+                      *ngIf="note" [note]="note"
+                      (editNote)="handleEditNote($event)"
+                      (deleteNote)="handleDeleteNote($event)"></app-note-details>
+  </div>
+
+  <h1 class="no-notes" *ngIf="noNotes$ | async">No notes yet</h1>
+</ng-container>
+
+<ng-template #loading>
+  <mat-spinner *ngIf="loading$"></mat-spinner>
+</ng-template>

@@ -1,0 +1,5 @@
+<h1 mat-dialog-title>Add new Note</h1>
+<div mat-dialog-content>
+  <app-note-form (save)="handleSave($event)"
+                   (cancel)="handleCancel()"></app-note-form>
+</div>

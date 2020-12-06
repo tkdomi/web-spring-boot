@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.notebook-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notebook {
+  margin: 20px;
+  display: flex;
+}
+
+.no-notes {
+  margin: 20px;
+  text-align: center;
+}
+
+.note-details {
+  width: 100%;
+}
