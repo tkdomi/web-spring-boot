@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Edit Note</h1>
+<div mat-dialog-content>
+  <ng-container *ngIf="loaded$ | async; else loading">
+    <app-note-form [note]="note$ | async"
+                  (save)="handleSave($event)"
+                  (cancel)="handleCancel()"></app-note-form>
+  </ng-container>
+</div>
+
+<ng-template #loading>
+  <mat-spinner *ngIf="loading$"></mat-spinner>
+</ng-template>

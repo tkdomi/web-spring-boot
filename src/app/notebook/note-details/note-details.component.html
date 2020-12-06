@@ -1,0 +1,13 @@
+<mat-card class="note-card">
+  <mat-card-title class="note-title">
+    {{note.title}}
+    <div class="note-actions">
+      <button type="button" mat-icon-button color="primary" (click)="handleEditNote()"><mat-icon>edit</mat-icon></button>
+      <button type="button" mat-icon-button color="warn" (click)="handleDeleteNote()"><mat-icon>delete</mat-icon></button>
+    </div>
+  </mat-card-title>
+  <hr>
+  <mat-card-content class="note-text">
+    {{note.text}}
+  </mat-card-content>
+</mat-card>

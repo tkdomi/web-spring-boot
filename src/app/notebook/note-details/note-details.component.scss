@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.note-card {
+  margin-left: 20px;
+}
+
+.note-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.note-text {
+  margin-top: 20px;
+}
+
+.note-actions {
+  margin-left: 36px;
+}

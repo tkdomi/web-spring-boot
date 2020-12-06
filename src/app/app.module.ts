@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { WeatherModule } from './weather/weather.module';
+import { NotebookModule } from './notebook/notebook.module';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,12 @@ import { WeatherModule } from './weather/weather.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    CarsModule,
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
+    CarsModule,
     WeatherModule,
+    NotebookModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
